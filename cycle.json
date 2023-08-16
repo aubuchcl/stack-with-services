@@ -9,10 +9,57 @@
       "allow_internet": true
     },
     "loadbalancer": {
-      "type": "default",
+      "type": "haproxy",
       "ipv4": true,
       "ipv6": true,
-      "details": null
+      "details": {
+        "default": {
+          "frontend": {
+            "mode": "tcp",
+            "max_connections": 750,
+            "timeouts": {
+              "client_secs": 8,
+              "client_fin_ms": null,
+              "http_keep_alive_ms": null,
+              "http_request_ms": null
+            }
+          },
+          "backend": {
+            "balance": "roundrobin",
+            "timeouts": {
+              "server_secs": 8,
+              "server_fin_ms": null,
+              "connect_ms": 500,
+              "queue_ms": 500,
+              "tunnel_secs": null
+            }
+          }
+        },
+        "ports": {
+          "1194": {
+            "frontend": {
+              "mode": "tcp",
+              "max_connections": 50,
+              "timeouts": {
+                "client_secs": 8,
+                "client_fin_ms": null,
+                "http_keep_alive_ms": null,
+                "http_request_ms": null
+              }
+            },
+            "backend": {
+              "balance": "source",
+              "timeouts": {
+                "server_secs": 8,
+                "server_fin_ms": null,
+                "connect_ms": 500,
+                "queue_ms": 500,
+                "tunnel_secs": null
+              }
+            }
+          }
+        }
+      }
     }
   },
   "containers": {
