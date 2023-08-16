@@ -1,0 +1,13 @@
+{
+  "service": {
+    "enable": true,
+    "container_id": "649c77de58109370057a775c",
+    "high_availability": false,
+    "config": {
+      "type": "default",
+      "details": null,
+      "ipv4": false,
+      "ipv6": true
+    }
+  }
+}

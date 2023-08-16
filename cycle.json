@@ -1,5 +1,20 @@
 {
   "version": "1.0",
+  "services": {
+    "vpn": {
+      "auth": {
+        "cycle_accounts": true,
+        "vpn_accounts": true
+      },
+      "allow_internet": true
+    },
+    "loadbalancer": {
+      "type": "default",
+      "ipv4": true,
+      "ipv6": true,
+      "details": null
+    }
+  },
   "containers": {
     "demo": {
       "name": "demo",
