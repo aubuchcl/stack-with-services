@@ -9,7 +9,7 @@
       "allow_internet": true
     },
     "loadbalancer": {
-      "type": "v1",
+      "type": "default",
       "ipv4": true,
       "ipv6": true,
       "details": null
