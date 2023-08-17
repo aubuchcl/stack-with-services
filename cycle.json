@@ -26,8 +26,7 @@
                 },
                 "timeouts": {
                   "idle": "15m"
-                },
-                "transport": null
+                }
               },
               "routers": [
                 {
@@ -39,7 +38,6 @@
                   "config": {
                     "sticky_sessions": true,
                     "destination_retries": 3,
-                    "transport": null,
                     "timeouts": {
                       "destination_connection": "3s"
                     }
@@ -66,29 +64,36 @@
                 "timeouts": {
                   "idle": "60s"
                 },
-                "transport": {
-                  "idle_conn_timeout": 30000000000,
-                  "max_idle_conns_per_connection": 5
+                "extension": {
+                  "type": "http",
+                  "details": {
+                    "connections": {
+                      "max_idle_conns_per_connection": 5
+                    }
+                  }
                 }
               },
               "routers": [
                 {
                   "match": {
                     "domains": null,
-                    "internal_port": [80, 8080]
+                    "internal_port": null
                   },
                   "mode": "round-robin",
                   "config": {
                     "sticky_sessions": true,
                     "destination_retries": 3,
-                    "transport": {
-                      "redirect": null,
-                      "forward": {
-                        "scheme": "http"
-                      }
-                    },
                     "timeouts": {
                       "destination_connection": "3s"
+                    },
+                    "extension": {
+                      "type": "http",
+                      "details": {
+                        "redirect": null,
+                        "forward": {
+                          "scheme": "http"
+                        }
+                      }
                     }
                   }
                 },
@@ -101,14 +106,17 @@
                   "config": {
                     "sticky_sessions": true,
                     "destination_retries": 3,
-                    "transport": {
-                      "redirect": null,
-                      "forward": {
-                        "scheme": "https"
-                      }
-                    },
                     "timeouts": {
                       "destination_connection": "3s"
+                    },
+                    "extension": {
+                      "type": "http",
+                      "details": {
+                        "redirect": null,
+                        "forward": {
+                          "scheme": "https"
+                        }
+                      }
                     }
                   }
                 }
@@ -128,9 +136,13 @@
                 "timeouts": {
                   "idle": "60s"
                 },
-                "transport": {
-                  "idle_conn_timeout": 30000000000,
-                  "max_idle_conns_per_connection": 5
+                "extension": {
+                  "type": "http",
+                  "details": {
+                    "connections": {
+                      "max_idle_conns_per_connection": 5
+                    }
+                  }
                 }
               },
               "routers": [
@@ -143,19 +155,22 @@
                   "config": {
                     "sticky_sessions": true,
                     "destination_retries": 3,
-                    "transport": {
-                      "redirect": {
-                        "auto_https_redirect": true,
-                        "port": null,
-                        "scheme": null,
-                        "url": null
-                      },
-                      "forward": {
-                        "scheme": "http"
-                      }
-                    },
                     "timeouts": {
                       "destination_connection": "3s"
+                    },
+                    "extension": {
+                      "type": "http",
+                      "details": {
+                        "redirect": {
+                          "auto_https_redirect": true,
+                          "port": null,
+                          "scheme": null,
+                          "url": null
+                        },
+                        "forward": {
+                          "scheme": "http"
+                        }
+                      }
                     }
                   }
                 },
@@ -168,14 +183,17 @@
                   "config": {
                     "sticky_sessions": true,
                     "destination_retries": 3,
-                    "transport": {
-                      "redirect": null,
-                      "forward": {
-                        "scheme": "https"
-                      }
-                    },
                     "timeouts": {
                       "destination_connection": "3s"
+                    },
+                    "extension": {
+                      "type": "http",
+                      "details": {
+                        "redirect": null,
+                        "forward": {
+                          "scheme": "https"
+                        }
+                      }
                     }
                   }
                 }
@@ -194,8 +212,7 @@
                 },
                 "timeouts": {
                   "idle": "20s"
-                },
-                "transport": null
+                }
               },
               "routers": [
                 {
@@ -207,7 +224,6 @@
                   "config": {
                     "sticky_sessions": false,
                     "destination_retries": 3,
-                    "transport": null,
                     "timeouts": {
                       "destination_connection": "3s"
                     }
